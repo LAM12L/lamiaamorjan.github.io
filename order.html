@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="he">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>real madrid</title>
+
+<head>
+    <script>
+        function calculate() {
+            var typeofclothing = document.getElementsByName("typeofclothing");
+            var colorofclothing = document.getElementsByName("colorofclothing");
+            var size = document.getElementsByName("size");
+            var logoposition = document.getElementsByName("logoposition");
+            var amount = document.getElementsByName("amount")[0].value;
+            var cal = Number(0);
+
+            for (var i = 0; i < colorofclothing.length; i++) {
+                if (colorofclothing[i].selected) {
+                    colorofclothing = colorofclothing[i].value;
+                    break;
+                }
+            }
+            for (var i = 0; i < typeofclothing.length; i++) {
+                if (typeofclothing[i].checked) {
+                    typeofclothing = typeofclothing[i].value;
+                    break;
+                }
+            }
+            for (var i = 0; i < size.length; i++) {
+                if (size[i].checked) {
+                    size = size[i].value;
+                    break;
+                }
+            }
+
+            for (var i = 0; i < logoposition.length; i++) {
+                if (logoposition[i].checked) {
+                    cal += Number(logoposition[i].value);
+                }
+            }
+            var calculating = Number(size) * (Number(typeofclothing) + Number(colorofclothing) + Number(cal));
+            var result = Number(amount) * Number(calculating);
+            printrResult(result);
+        }
+
+        function printrResult(result) {
+            var resultDiv = document.getElementById("resultDiv");
+            resultDiv.innerText = "result: " + result;
+
+        }
+    </script>
+</head>
+
+<body>
+    <form action="https://formspree.io/f/moqpkgzq" method="POST">
+        <label>
+                    number:<br>
+                    <input type="text"  placeholder="29760734" readonly>
+                </label>
+        <br><br>
+        <label>
+                    first name:<br>
+                    <input type="text" name="first name" placeholder="please enter your first name " maxlength="20" >
+                </label>
+        <br><br>
+        <label>
+                    last name :<br>
+                    <input type="text" name="last name " placeholder=" enter your last name" maxlength="20" >
+                </label>
+        <br><br> type of clothing : <br>
+        <input type="radio" id=t-shirt name="typeofclothing" value="10" checked="checked">
+        <label for="t-shirt-10">T-Shirt-10</label><br>
+        <input type="radio" id=undershirt name="typeofclothing" value="10">
+        <label for="undershirt-10">UnderShirt-10</label><br>
+        <input type="radio" id=sweater name="typeofclothing" value="20">
+        <label for="sweater-20">Sweater-20</label><br>
+        <input type="radio" id=hoodie name="typeofclothing" value="30">
+        <label for="hoodie-30">Hoodie-30</label><br>
+        <input type="radio" id=jacket name="typeofclothing" value="50">
+        <label for="jacket-50">Jacket-50</label><br>
+        <br><br>
+
+        <label for="color">choose the color:</label><br>
+        <select id="colorofclothing" name="colorofclothing">
+                    <option id="red" name="colorofclothing" value="0">red - 0</option>
+                    <option id="green" name="colorofclothing" value="5">green - 5</option>
+                    <option id="blue" name="colorofclothing" value="-2">blue - 2</option>
+                    <option id="white" name="colorofclothing" value="0" selected>white 0</option>
+                </select>
+        <br><br> size : <br>
+        <input type="radio" id="s" name="size" value="0.9">
+        <label for="s">S-10% off</label><br>
+        <input type="radio" id="m" name="size" value="1">
+        <label for="m">M</label><br>
+        <input type="radio" id="l" name="size" value="1">
+        <label for="l">L</label><br>
+        <input type="radio" id="xl" name="size" value="1.1">
+        <label for="xl">XL- +10%</label><br><br> logo position : <br>
+        <input type="checkbox" id="logoposition" name="logoposition" value="3">
+        <label for="front">Back - 3₪</label><br>
+        <input type="checkbox" id="logoposition" name="logoposition" value="3">
+        <label for=" back ">Front - 3₪</label><br>
+        <input type="checkbox" id="logoposition" name="logoposition" value="3">
+        <label for="right">Right Sleeves - 3₪</label><br>
+        <input type="checkbox" id="logoposition" name="logoposition" value="3">
+        <label for="left">Left Sleeve - 3₪</label>
+        <br><br>
+        <label>
+                    address:
+                    <br>
+                    <textarea rows="10"  cols="30" placeholder="please enter your address "></textarea>
+                </label>
+
+        <br><br>
+        <label>amount of items: </label>
+        <input type="text" id="amount" name="amount" placeholder="1" size="5" value="1">
+        <br><br>
+        <input type="button" onclick="calculate()" value="calculate the price" size="4">
+        <div id="resultDiv">
+            result:
+        </div>
+        <br><br>
+
+        <input type="submit" value="שלח הזמנה(send)">
+        <input type="reset" value="התחל מהתחלה(Reset)">
+
+    </form>
+</body>
+
+</html>

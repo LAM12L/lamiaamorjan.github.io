@@ -1,0 +1,36 @@
+body {
+    background-color: mistyrose;
+}
+
+h1 {
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+    border-style: double;
+    border-color: teal;
+    text-decoration: underline;
+    color: darkgreen;
+}
+
+a {
+    border-style: dotted;
+    color: lightseagreen;
+    border-color: firebrick;
+}
+
+ul {
+    color: cornflowerblue;
+    background-color: ivory;
+}
+
+ol {
+    color: cornflowerblue;
+    background-color: ivory;
+}
+
+table {
+    color: lightseagreen;
+    background-color: mintcream;
+}
